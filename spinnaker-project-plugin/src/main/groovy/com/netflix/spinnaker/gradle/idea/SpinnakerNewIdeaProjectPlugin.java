@@ -89,7 +89,7 @@ public class SpinnakerNewIdeaProjectPlugin implements Plugin<Project> {
         throw new IOException("Couldn't commit changes to git repository.");
       }
     } catch (IOException e) {
-      System.out.println("Error configuring git repository for idea files: " + e.getMessage());
+      project.getLogger().warn("Error configuring git repository for idea files: {}", e.getMessage(), e);
     }
   }
 
@@ -118,7 +118,7 @@ public class SpinnakerNewIdeaProjectPlugin implements Plugin<Project> {
         TransformerFactory.newInstance().newTransformer().transform(new DOMSource(document), new StreamResult(out));
       }
     } catch (IOException | ParserConfigurationException | TransformerException e) {
-      System.out.println("Error updating license: " + e.getMessage());
+      project.getLogger().warn("Error updating license: {}", e.getMessage(), e);
     }
   }
 
