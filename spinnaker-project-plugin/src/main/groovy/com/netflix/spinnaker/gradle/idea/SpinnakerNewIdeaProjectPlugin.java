@@ -42,11 +42,12 @@ import org.w3c.dom.Element;
 
 public class SpinnakerNewIdeaProjectPlugin implements Plugin<Project> {
 
-  private static final Path LICENSE_FILE = Paths.get("copyright", "ALS2.xml");
+  private static final String COPYRIGHT = "copyright";
+  private static final Path LICENSE_FILE = Paths.get(COPYRIGHT, "ALS2.xml");
   private static final ImmutableSet<Path> COMMITTED_IDEA_FILES = ImmutableSet.of(
     Paths.get("compiler.xml"),
     LICENSE_FILE,
-    Paths.get("copyright", "profiles_settings.xml"),
+    Paths.get(COPYRIGHT, "profiles_settings.xml"),
     Paths.get("google-java-format.xml"),
     Paths.get("gradle.xml"),
     Paths.get("vcs.xml")
@@ -133,7 +134,7 @@ public class SpinnakerNewIdeaProjectPlugin implements Plugin<Project> {
     component.setAttribute("name", "CopyrightManager");
     document.appendChild(component);
 
-    Element copyright = document.createElement("copyright");
+    Element copyright = document.createElement(COPYRIGHT);
     component.appendChild(copyright);
 
     Element notice = document.createElement("option");
