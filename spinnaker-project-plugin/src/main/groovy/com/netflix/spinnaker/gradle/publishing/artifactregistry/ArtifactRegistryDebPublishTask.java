@@ -36,7 +36,9 @@ class ArtifactRegistryDebPublishTask extends DefaultTask {
   private Provider<Integer> aptImportTimeoutSeconds;
 
   @Inject
-  public ArtifactRegistryDebPublishTask() {}
+  public ArtifactRegistryDebPublishTask() {
+    // empty constructor required for Gradle dependency injection
+  }
 
   @Input
   public Provider<String> getUploadBucket() {
